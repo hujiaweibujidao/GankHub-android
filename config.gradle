@@ -1,0 +1,15 @@
+
+ext {
+
+    android = [compileSdkVersion: 25,
+               buildToolsVersion: "25.0.2",
+               minSdkVersion    : 21,
+               targetSdkVersion : 25,
+               versionCode      : 1,
+               versionName      : "1.1",
+               applicationId    : "com.javayhu.gankhub",
+               supportv7Version : "25.1.0",
+               supportv4Version : "25.1.0",
+               supportDesignVersion : "23.1.1"
+    ]
+}

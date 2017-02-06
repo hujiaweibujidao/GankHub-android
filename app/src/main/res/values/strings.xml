@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GankHub</string>
+
+    <string name="previous_month">Previous month</string>
+    <string name="next_month">Next month</string>
+
+
+    <!-- menu -->
+    <string name="search">Search</string>
+    <string name="about">About</string>
+</resources>

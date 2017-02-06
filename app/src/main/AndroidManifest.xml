@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.javayhu.gankhub">
+
+    <!-- bugly -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- android:roundIcon="@mipmap/gankhub" -->
+    <application
+        android:name=".GankHubApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/gankhub"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".module.home.HomeActivity"
+            android:label="@string/app_name" />
+
+        <!-- 为了方便我们更改启动activity -->
+        <activity-alias
+            android:name=".Launcher"
+            android:label="@string/app_name"
+            android:targetActivity=".module.home.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:name=".module.detail.GankDayActivity" />
+
+        <!-- bugly 应用升级需要的界面 -->
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!--
+        bugly 兼容Android N或者以上的设备必须要配置FileProvider来访问共享路径的文件
+        应用升级时会将应用下载在指定的路径下，下载完成之后需要访问该apk文件进行安装
+        -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bugly_provider_paths" />
+        </provider>
+
+        <!-- 日历挂件 -->
+        <receiver android:name=".widget.MonthCalendarWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_calendar_options" />
+        </receiver>
+
+        <!-- 由build.gradle文件的productFlavors来配置渠道 -->
+        <meta-data
+            android:name="CHANNEL_VALUE"
+            android:value="${CHANNEL_VALUE}" />
+
+        <activity android:name=".module.about.AboutActivity"></activity>
+    </application>
+
+</manifest>
