@@ -35,6 +35,7 @@
         </activity-alias>
 
         <activity android:name=".module.detail.GankDayActivity" />
+        <activity android:name=".module.about.AboutActivity"/>
 
         <!-- bugly 应用升级需要的界面 -->
         <activity
@@ -71,7 +72,7 @@
             android:name="CHANNEL_VALUE"
             android:value="${CHANNEL_VALUE}" />
 
-        <activity android:name=".module.about.AboutActivity"></activity>
+
     </application>
 
 </manifest>

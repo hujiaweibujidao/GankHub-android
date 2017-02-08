@@ -102,7 +102,7 @@ public class MonthCalendarWidget extends AppWidgetProvider {
             int year = intent.getIntExtra(PREF_YEAR, cal.get(Calendar.YEAR));
             int month = intent.getIntExtra(PREF_MONTH, cal.get(Calendar.MONTH)) + 1;
             int day = intent.getIntExtra(PREF_DAY, cal.get(Calendar.DAY_OF_MONTH));
-            Toast.makeText(context, "date:" + year + " " + month + " " + day, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, year + " " + month + " " + day, Toast.LENGTH_SHORT).show();
         }
     }
 
