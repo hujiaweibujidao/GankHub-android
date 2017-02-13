@@ -118,6 +118,9 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.menu_about:
                 startActivity(new Intent(this, AboutActivity.class));
                 return true;
+            case R.id.menu_settings:
+
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -141,8 +144,6 @@ public class HomeActivity extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
         }
     }
-
-
 
     private class SampleAdapter extends RecyclerView.Adapter<SampleHolder> {
 
@@ -188,15 +189,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void gotoGankDay() {
-        Intent intent = new Intent(this, GankDayActivity.class);
-        intent.putExtra("year", 2017);
-        intent.putExtra("month", 1);
-        intent.putExtra("day", 20);
-        startActivity(intent);
-
-        /*ARouter.getInstance().build("/day")
-                .withInt("year", 2017)
-                .withInt("month", 1)
-                .withInt("day", 20).navigation();*/
+        GankDayActivity.startActivity(this, 2017, 1, 20);
     }
 }

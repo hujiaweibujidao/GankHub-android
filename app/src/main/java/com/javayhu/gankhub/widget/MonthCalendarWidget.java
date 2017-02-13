@@ -15,6 +15,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import com.javayhu.gankhub.R;
+import com.javayhu.gankhub.module.detail.GankDayActivity;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
@@ -100,9 +101,11 @@ public class MonthCalendarWidget extends AppWidgetProvider {
         } else if (ACTION_CLICK.equals(action)) {
             Calendar cal = Calendar.getInstance();
             int year = intent.getIntExtra(PREF_YEAR, cal.get(Calendar.YEAR));
-            int month = intent.getIntExtra(PREF_MONTH, cal.get(Calendar.MONTH)) + 1;
+            int month = intent.getIntExtra(PREF_MONTH, cal.get(Calendar.MONTH));
             int day = intent.getIntExtra(PREF_DAY, cal.get(Calendar.DAY_OF_MONTH));
             Toast.makeText(context, year + " " + month + " " + day, Toast.LENGTH_SHORT).show();
+
+            GankDayActivity.startActivity(context, year, month, day);
         }
     }
 

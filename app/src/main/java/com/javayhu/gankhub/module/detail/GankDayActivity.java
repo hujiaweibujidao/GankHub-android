@@ -1,5 +1,6 @@
 package com.javayhu.gankhub.module.detail;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -57,4 +58,11 @@ public class GankDayActivity extends AppCompatActivity {
     }
 
 
+    public static void startActivity(Context context, int year, int month, int day) {
+        Intent intent = new Intent(context, GankDayActivity.class);
+        intent.putExtra("year", year);
+        intent.putExtra("month", month);
+        intent.putExtra("day", day);
+        context.startActivity(intent);
+    }
 }

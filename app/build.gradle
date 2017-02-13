@@ -98,4 +98,6 @@ dependencies {
     //Bugly: 异常上报 + 应用升级
     compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
 
+    //kiss组件
+    compile 'com.github.hujiaweibujidao:kiss-monitor:1.0.0'
 }

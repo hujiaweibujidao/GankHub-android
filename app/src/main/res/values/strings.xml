@@ -8,4 +8,5 @@
     <!-- menu -->
     <string name="search">Search</string>
     <string name="about">About</string>
+    <string name="settings">Settings</string>
 </resources>
